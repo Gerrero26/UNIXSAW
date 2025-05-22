@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1136" height="650" viewBox="0 0 1136 650" fill="none">
+  <g>
+    <!-- Основание платформы -->
+    <path d="M40 350 L970 350 L970 600 L40 600 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+    
+    <!-- Контуры платформы -->
+    <path d="M40 350 L970 350 L1000 330 L70 330 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+    <path d="M970 350 L1000 330 L1000 580 L970 600 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+    
+    <!-- Цех/Мастерская -->
+    <g>
+      <!-- Каркас цеха -->
+      <path d="M250 220 L250 350 L450 350 L450 220 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+      <path d="M250 220 L450 220 L480 200 L280 200 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+      <path d="M450 220 L450 350 L480 330 L480 200 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+      
+      <!-- Внутреннее оборудование цеха -->
+      <rect x="290" y="250" width="120" height="40" fill="#000" stroke="#000" stroke-width="2"/>
+      <rect x="290" y="290" width="120" height="5" fill="#fff" stroke="#000" stroke-width="1"/>
+      <rect x="290" y="295" width="120" height="40" fill="#ddd" stroke="#000" stroke-width="2"/>
+    </g>
+
+    <!-- Рабочие станки ЧПУ -->
+    <g transform="translate(600, 330)">
+      <!-- Первый станок ЧПУ -->
+      <path d="M0 0 L60 0 L60 60 L0 60 Z" fill="#ddd" stroke="#000" stroke-width="2"/>
+      <path d="M60 0 L90 -15 L90 45 L60 60 Z" fill="#bbb" stroke="#000" stroke-width="2"/>
+      <path d="M0 0 L30 -15 L90 -15 L60 0 Z" fill="#eee" stroke="#000" stroke-width="2"/>
+      <rect x="10" y="20" width="40" height="30" fill="#fff" stroke="#000" stroke-width="1"/>
+    </g>
+    
+    <g transform="translate(700, 330)">
+      <!-- Второй станок ЧПУ -->
+      <path d="M0 0 L60 0 L60 60 L0 60 Z" fill="#ddd" stroke="#000" stroke-width="2"/>
+      <path d="M60 0 L90 -15 L90 45 L60 60 Z" fill="#bbb" stroke="#000" stroke-width="2"/>
+      <path d="M0 0 L30 -15 L90 -15 L60 0 Z" fill="#eee" stroke="#000" stroke-width="2"/>
+      <rect x="10" y="20" width="40" height="30" fill="#fff" stroke="#000" stroke-width="1"/>
+    </g>
+
+    <!-- Ресепшн зона -->
+    <g transform="translate(580, 230)">
+      <path d="M0 0 L150 0 L150 30 L0 30 Z" fill="#ddd" stroke="#000" stroke-width="2"/>
+      <path d="M0 0 L30 -15 L180 -15 L150 0 Z" fill="#eee" stroke="#000" stroke-width="2"/>
+      <path d="M150 0 L180 -15 L180 15 L150 30 Z" fill="#bbb" stroke="#000" stroke-width="2"/>
+      <text x="60" y="20" font-family="sans-serif" font-size="10" fill="#000">ACTIVE</text>
+    </g>
+
+    <!-- Автомобиль -->
+    <g transform="translate(100, 500)">
+      <path d="M0 0 L80 0 L100 -20 L20 -20 Z" fill="#ddd" stroke="#000" stroke-width="2"/>
+      <path d="M0 0 L0 25 L80 25 L80 0 Z" fill="#ccc" stroke="#000" stroke-width="2"/>
+      <circle cx="20" cy="25" r="10" fill="#333" stroke="#000" stroke-width="1"/>
+      <circle cx="60" cy="25" r="10" fill="#333" stroke="#000" stroke-width="1"/>
+      <rect x="30" y="-10" width="30" height="15" fill="#eee" stroke="#000" stroke-width="1"/>
+    </g>
+
+    <!-- Склад материалов -->
+    <g transform="translate(150, 400)">
+      <rect x="0" y="0" width="80" height="20" fill="#ddd" stroke="#000" stroke-width="2"/>
+      <rect x="0" y="20" width="80" height="2" fill="#bbb" stroke="#000" stroke-width="1"/>
+      <rect x="0" y="22" width="80" height="20" fill="#ddd" stroke="#000" stroke-width="2"/>
+      <rect x="0" y="42" width="80" height="2" fill="#bbb" stroke="#000" stroke-width="1"/>
+    </g>
+
+    <!-- Рабочий стол с компьютером -->
+    <g transform="translate(550, 450)">
+      <rect x="0" y="0" width="70" height="40" fill="#ddd" stroke="#000" stroke-width="2"/>
+      <rect x="20" y="-20" width="30" height="20" fill="#eee" stroke="#000" stroke-width="1"/>
+      <circle cx="10" cy="10" r="5" fill="#fff" stroke="#000" stroke-width="1"/>
+      <rect x="10" y="40" width="10" height="20" fill="#bbb" stroke="#000" stroke-width="1"/>
+      <rect x="50" y="40" width="10" height="20" fill="#bbb" stroke="#000" stroke-width="1"/>
+    </g>
+
+    <!-- Диван -->
+    <g transform="translate(800, 500)">
+      <rect x="0" y="0" width="80" height="40" fill="#ddd" stroke="#000" stroke-width="2"/>
+      <rect x="0" y="-20" width="80" height="20" fill="#eee" stroke="#000" stroke-width="1"/>
+      <rect x="0" y="-25" width="10" height="25" fill="#ccc" stroke="#000" stroke-width="1"/>
+      <rect x="70" y="-25" width="10" height="25" fill="#ccc" stroke="#000" stroke-width="1"/>
+    </g>
+
+    <!-- Дополнительные элементы декора -->
+    <g transform="translate(850, 350)">
+      <rect x="0" y="0" width="70" height="100" fill="#eee" stroke="#000" stroke-width="2"/>
+      <rect x="10" y="10" width="50" height="30" fill="#ddd" stroke="#000" stroke-width="1"/>
+      <rect x="10" y="50" width="20" height="20" fill="#ccc" stroke="#000" stroke-width="1"/>
+      <rect x="40" y="50" width="20" height="20" fill="#ccc" stroke="#000" stroke-width="1"/>
+    </g>
+
+    <!-- Растение -->
+    <g transform="translate(950, 450)">
+      <rect x="0" y="0" width="20" height="20" fill="#ddd" stroke="#000" stroke-width="1"/>
+      <path d="M10 0 L5 -30 M10 0 L10 -40 M10 0 L15 -30" stroke="#000" stroke-width="1" fill="none"/>
+      <circle cx="5" cy="-30" r="5" fill="#fff" stroke="#000" stroke-width="1"/>
+      <circle cx="10" cy="-40" r="5" fill="#fff" stroke="#000" stroke-width="1"/>
+      <circle cx="15" cy="-30" r="5" fill="#fff" stroke="#000" stroke-width="1"/>
+    </g>
+
+    <!-- Картины на стене -->
+    <g transform="translate(100, 250)">
+      <rect x="0" y="0" width="40" height="40" fill="#eee" stroke="#000" stroke-width="2"/>
+      <rect x="5" y="5" width="30" height="30" fill="#fff" stroke="#000" stroke-width="1"/>
+    </g>
+    
+    <g transform="translate(150, 250)">
+      <rect x="0" y="0" width="40" height="40" fill="#eee" stroke="#000" stroke-width="2"/>
+      <rect x="5" y="5" width="30" height="30" fill="#fff" stroke="#000" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

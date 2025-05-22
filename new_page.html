@@ -56,6 +56,35 @@
             padding: 20px;
         }
         
+        .hero-section {
+            width: 100%;
+            max-width: 1128px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-frame {
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid #000;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-image-container {
+            width: 100%;
+            padding: 26px 26px 26px 26px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+            border: 1px solid #000;
+        }
+        
         /* Медиа-запрос для мобильных устройств */
         @media (max-width: 768px) {
             .logo {
@@ -65,6 +94,14 @@
             
             .main-content {
                 padding: 10px;
+            }
+            
+            .hero-section {
+                margin-bottom: 20px;
+            }
+            
+            .hero-image-container {
+                padding: 15px;
             }
         }
     </style>
@@ -76,8 +113,16 @@
         </svg>
     </div>
     
+    <!-- Добавляем Hero Section -->
+    <div class="hero-section">
+        <div class="hero-frame">
+            <div class="hero-image-container">
+                <img src="workshop-illustration.svg" alt="UNIXSAW мастерская" class="hero-image">
+            </div>
+        </div>
+    </div>
+    
     <div class="main-content">
-        <!-- Здесь будет новый контент страницы -->
         <h1>Добро пожаловать на новую страницу</h1>
         <p>Содержимое новой страницы будет добавлено здесь.</p>
     </div>
