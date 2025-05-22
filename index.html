@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIXSAW</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: sans-serif;
+            background-color: #E2E2E2;
+            background-image: linear-gradient(rgba(220, 220, 220, 1) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(220, 220, 220, 1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            perspective: 1000px;
+        }
+        
+        @keyframes logoAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(60%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo {
+            position: center;
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1048px; /* Соответствует ширине контента (container width - padding) */
+            animation: logoAnimation 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1128px;
+            border: 3px solid #000;
+            border-radius: 20px;
+            background-color: white;
+            padding: 40px;
+            opacity: 0.8;
+            transition: transform 0.4s ease-out;
+            transform-style: preserve-3d;
+        }
+        
+        .content {
+            border: 1px solid #000;
+            padding: 120px 20px;
+            position: relative;
+            min-height: 550px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .title {
+            font-size: 3.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .description {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: lighter;
+        }
+        
+        .top-left {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .top-right {
+            top: 20px;
+            right: 20px;
+        }
+        
+        .bottom-left {
+            bottom: 20px;
+            left: 20px;
+        }
+        
+        .bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .header {
+            position: absolute;
+            top: 18px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 24px; /* Совпадает с высотой значков + */
+        }
+        
+        .header-mobile {
+            display: none;
+        }
+        
+        .header-desktop {
+            display: inline;
+        }
+        
+        .codes {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            line-height: 24px; /* Совпадает с высотой значков + */
+        }
+        
+        /* Медиа-запрос для мобильных устройств */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2rem;
+                margin-bottom: 22px;
+            }
+            
+            .description {
+                font-size: 1.2rem;
+            }
+            
+            .content {
+                padding: 100px 15px;
+                min-height: 500px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .logo {
+                margin-bottom: 60px;
+            }
+
+            .header {
+                top: 20px;
+            }
+            
+            .header-mobile {
+                display: inline;
+            }
+
+            .codes {
+                bottom: 16px;
+            }
+            
+            .header-desktop {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" fill="none" viewBox="0 0 1136 171">
+          <path fill="#111" d="m1021.63 60.951-19.44 104.057h-50.544L907.508 4.92h49.17l19.439 85.761 2.973 18.525 3.659-19.897L999.901 4.92h42.999l18.52 86.219 2.74 18.067 2.98-20.812 19.44-83.474h48.94l-43.91 160.088h-49.86l-20.12-104.057Zm-211.316 81.416-7.318 22.641h-51.685L810.543 4.92h49.17l59.232 160.088H867.26l-7.319-22.641h-49.627Zm9.834-32.932h29.959l-15.094-48.027-14.865 48.027Zm-217.619 2.744h50.085c-.458 6.861 2.058 13.722 5.488 17.381 5.718 6.174 14.637 6.403 19.44 6.403 4.802 0 9.834-.457 14.179-3.43 3.43-2.287 5.946-5.946 5.946-11.435 0-4.803-1.601-8.462-5.946-11.435-4.345-2.973-13.493-5.26-18.753-6.403l-16.009-3.202c-22.641-4.574-33.847-11.664-39.564-16.924-8.462-7.547-12.35-17.152-12.35-30.188 0-20.81 10.977-32.474 18.753-38.65C639.121 2.406 658.56.805 672.968.805c12.349 0 35.219 1.143 49.856 13.721 8.004 6.861 15.779 19.668 16.466 36.135h-47.112c0-3.888-1.143-8.234-3.659-10.978-2.287-2.516-6.861-5.031-15.551-5.031-4.117 0-10.292.686-13.722 2.744-2.973 1.83-5.489 5.489-5.489 9.377 0 2.287.458 5.26 3.202 7.775 3.888 3.888 11.206 5.032 23.098 7.547l15.552 3.43c10.748 2.288 26.528 6.175 37.277 16.924 5.489 5.489 12.35 15.552 12.35 31.103 0 14.865-6.632 30.188-15.094 38.878-16.009 16.238-41.852 17.61-56.488 17.61-15.78 0-40.251-1.601-56.031-18.067-8.233-8.462-14.865-23.098-15.094-39.793Zm-86.631 6.175-27.214 46.654h-61.748l59.461-83.703L434.94 4.92h54.887l26.071 44.596L542.427 4.92h56.259L545.4 81.305l57.632 83.703h-60.605l-26.529-46.654ZM365.078 4.92h49.856v160.088h-49.856V4.92ZM232.414 76.274v88.734h-49.855V4.92h49.855l48.941 88.734V4.92h49.856v160.088h-49.856l-48.941-88.734ZM148.679 4.92v100.17c0 15.323-1.143 30.874-15.551 45.511-14.408 14.636-34.99 18.753-58.317 18.753-23.099 0-44.367-4.117-58.775-18.753C2.314 136.649.484 121.098.484 104.861V4.921H50.57v97.881c0 6.404.915 14.637 6.175 20.126 5.488 5.717 13.035 6.174 17.838 6.174 4.803 0 12.35-.457 17.838-6.174 5.26-5.489 6.175-13.722 6.175-20.126V4.92h50.084Z"/>
+        </svg>
+    </div>
+    
+    <div class="container" id="card">
+        <div class="content">
+            <div class="corner top-left">+</div>
+            <div class="corner top-right">+</div>
+            
+            <div class="header">
+                <span class="header-desktop">ТЕХНИЧЕСКИЕ РАБОТЫ UNIXSAW.GE</span>
+                <span class="header-mobile">ТЕХНИЧЕСКИЕ РАБОТЫ</span>
+            </div>
+            
+            <div class="title">Ведутся технические работы</div>
+            <div class="description">Совсем скоро сайт снова будет доступен.</div>
+            
+            <div class="codes">
+                <span>A-1</span>
+                <span>F-2</span>
+                <span>G-4</span>
+                <span>F-5</span>
+                <span>A-6</span>
+            </div>
+            
+            <div class="corner bottom-left">+</div>
+            <div class="corner bottom-right">+</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const card = document.getElementById('card');
+            const maxTilt = 1; // Уменьшенный максимальный угол наклона в градусах
+            
+            document.addEventListener('mousemove', function(e) {
+                if (!card) return;
+                
+                // Получаем размеры окна
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+                
+                // Вычисляем положение мыши относительно центра экрана
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                
+                // Нормализуем координаты (от -1 до 1)
+                const normalizedX = (mouseX / windowWidth) * 2 - 1;
+                const normalizedY = (mouseY / windowHeight) * 2 - 1;
+                
+                // Применяем очень небольшой наклон (еле заметный)
+                const tiltX = normalizedY * maxTilt;
+                const tiltY = -normalizedX * maxTilt;
+                
+                // Применяем трансформацию с небольшой задержкой
+                card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+            });
+            
+            // Возвращаем карточку в исходное положение, когда мышь покидает окно
+            document.addEventListener('mouseleave', function() {
+                if (!card) return;
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+</body>
+</html> 
