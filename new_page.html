@@ -214,7 +214,7 @@
         .info-section {
             width: 100%;
             max-width: 1600px; /* Соответствует hero-section */
-            padding: 32px 21px; /* Уменьшено на ~20% (было 40px 26px) */
+            padding: 80px 40px; /* Уменьшено на ~20% (было 40px 26px) */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -247,6 +247,247 @@
             color: #858585; /* Цвет текста из Figma */
             line-height: 59.26px; /* Уменьшено на ~20% (было 74.076px) */
             letter-spacing: -1.64px; /* Уменьшено на ~20% (было -2.051px) */
+        }
+
+        /* Стили для раздела услуг */
+        .services-section {
+            width: 100%;
+            max-width: 1800px;
+            padding: 0px 26px 26px 26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .services-card {
+            width: 1300px; /* ~70% от 1711.25 */
+            height: 765px; /* ~70% от 1087.04 */
+            border: 4px solid #000;
+            border-radius: 24px;
+            padding: 39px;
+            background-color: white;
+            margin: 0 auto; /* Дополнительное центрирование */
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            height: 100%; /* Используем всю высоту карточки */
+        }
+
+        .services-panel {
+            position: relative;
+            border: 1px solid #000;
+            height: 100%; /* Используем всю высоту грида */
+        }
+
+        .left-panel {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: absolute;
+            top: 16px;
+            left: 0;
+            right: 0;
+            padding: 0 16px;
+        }
+
+        .plus-icon {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .panel-title {
+            font-size: 15px;
+        }
+
+        .panel-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 48px 0;
+            width: 100%;
+            height: 80%;
+        }
+
+        .panel-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .reference-codes {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 19px;
+            font-size: 13px;
+        }
+
+        .plus-icon.bottom-left {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+        }
+
+        .plus-icon.bottom-right {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+        }
+
+        .right-panel {
+            padding: 32px;
+            position: relative;
+        }
+
+        .panel-content {
+            height: 100%;
+            position: relative;
+        }
+
+        .services-content {
+            margin-bottom: 60px;
+        }
+
+        .services-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .services-subtitle {
+            font-size: 18px;
+            margin-bottom: 24px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #000;
+            margin: 24px 0;
+        }
+
+        .divider.small {
+            margin: 12px 0;
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .service-item {
+            margin-bottom: 8px;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .service-number {
+            font-size: 17.28px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            margin-right: 16px;
+            color: #666;
+        }
+
+        .service-name {
+            font-size: 24.28px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .service-description {
+            font-size: 14px;
+            line-height: 1.4;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 0;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .page-number.left {
+            left: 0;
+        }
+
+        .page-number.right {
+            right: 0;
+        }
+
+        /* Адаптация для мобильных устройств */
+        @media (max-width: 1240px) {
+            .services-card {
+                width: 90%; /* На меньших экранах - процентная ширина */
+                height: auto; /* Автоматическая высота */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-panel {
+                min-height: 400px;
+                height: auto;
+            }
+
+            .services-section {
+                padding: 15px;
+            }
+
+            .services-card {
+                padding: 15px;
+                width: 95%; /* Почти вся ширина экрана */
+            }
+
+            .right-panel, .left-panel {
+                padding: 16px;
+            }
+
+            .services-title {
+                font-size: 24px;
+            }
+
+            .services-subtitle {
+                font-size: 16px;
+            }
+
+            .service-number, .service-name {
+                font-size: 16px;
+            }
+
+            .service-description {
+                font-size: 12px;
+            }
+
+            .page-number {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
@@ -296,6 +537,105 @@
         <div class="info-text-container">
             <h2><strong>UNIXSAW</strong> специализируется на услугах резки, обработки и распила разнообразных материалов.</h2>
             <p>Используя современное итальянское оборудование BIESSE, мы осуществляем резку материалов с исключительной точностью!</p>
+        </div>
+    </div>
+    
+    <!-- Раздел карточки услуг -->
+    <div class="services-section">
+        <div class="services-card">
+            <div class="services-grid">
+                <!-- Левая панель -->
+                <div class="services-panel left-panel">
+                    <!-- Верхний заголовок с иконками "плюс" и названием -->
+                    <div class="panel-header">
+                        <span class="plus-icon">+</span>
+                        <p class="panel-title">услуги</p>
+                        <span class="plus-icon">+</span>
+                    </div>
+
+                    <!-- Главное изображение -->
+                    <div class="panel-image-container">
+                        <img src="img/razdel/Основные улуги.png" alt="Производственное оборудование" class="panel-image">
+                    </div>
+
+                    <!-- Нижние кодовые ссылки -->
+                    <div class="reference-codes">
+                        <span>A-1</span>
+                        <span>F-2</span>
+                        <span>G-4</span>
+                        <span>F-5</span>
+                        <span>A-6</span>
+                    </div>
+
+                    <!-- Иконки "плюс" в углах -->
+                    <span class="plus-icon bottom-left">+</span>
+                    <span class="plus-icon bottom-right">+</span>
+                </div>
+
+                <!-- Правая панель -->
+                <div class="services-panel right-panel">
+                    <div class="panel-content">
+                        <!-- Основное содержание услуг -->
+                        <div class="services-content">
+                            <h1 class="services-title">ОСНОВНЫЕ УСЛУГИ</h1>
+                            <p class="services-subtitle">Услуги резки, обработки и распила матералов</p>
+
+                            <div class="divider"></div>
+
+                            <div class="services-list">
+                                <div class="service-item">
+                                    <h2 class="service-header">
+                                        <span class="service-number">[1]</span>
+                                        <span class="service-name">Кромка</span>
+                                    </h2>
+                                    <p class="service-description">
+                                        Создадим идеальные кромки для безупречного интерьера, используя современное итальянское
+                                        оборудование BIESSE
+                                    </p>
+                                </div>
+
+                                <div class="divider small"></div>
+
+                                <div class="service-item">
+                                    <h2 class="service-header">
+                                        <span class="service-number">[2]</span>
+                                        <span class="service-name">Плитка</span>
+                                    </h2>
+                                    <p class="service-description">
+                                        Высокоточная резка плитки с использованием детально проработанных чертежей.
+                                    </p>
+                                </div>
+
+                                <div class="divider small"></div>
+
+                                <div class="service-item">
+                                    <h2 class="service-header">
+                                        <span class="service-number">[3]</span>
+                                        <span class="service-name">ДСП и МДФ</span>
+                                    </h2>
+                                    <p class="service-description">Фанера, ламинированная фанера и древесно-пенная плитка</p>
+                                </div>
+
+                                <div class="divider small"></div>
+
+                                <div class="service-item">
+                                    <h2 class="service-header">
+                                        <span class="service-number">[4]</span>
+                                        <span class="service-name">Сварка</span>
+                                    </h2>
+                                    <p class="service-description">
+                                        Профессиональная сварка деталей различной толщины с применением современных технологий.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Номера страниц -->
+                        <div class="page-number left">1</div>
+                        <div class="page-number right">/4</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
