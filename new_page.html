@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNIXSAW - Новая страница</title>
+    <!-- Подключение шрифта Inter с Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,7 +26,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
         }
         
         @keyframes logoAnimation {
@@ -40,7 +46,7 @@
             position: center;
             margin-top: 40px;
             margin-bottom: 40px;
-            display: flex;
+            display: none; /* Скрываем логотип */
             justify-content: center;
             width: 100%;
             max-width: 1048px;
@@ -49,44 +55,132 @@
         
         .main-content {
             width: 100%;
-            max-width: 1128px;
+            max-width: 1800px;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            margin-top: 40px;
+        }
+        
+        /* Стили для меню */
+        .menu-container {
+            width: 100%;
+            max-width: 1800px;
+            padding: 0 26px;
+            margin-top: 26px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .menu {
+            width: 100%;
+            height: 80px;
+            background-color: #f1f1f1;
+            border-radius: 20px;
+            border: 3px solid #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+        
+        .menu-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu-logo svg {
+            height: 26px;
+            width: auto;
+        }
+        
+        .menu-items {
+            display: flex;
+            gap: 45px;
+            align-items: center;
+        }
+        
+        .menu-item {
+            font-size: 14px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+        }
+        
+        .menu-language {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .menu-language a {
+            text-decoration: none;
+            color: #000;
         }
         
         .hero-section {
             width: 100%;
-            max-width: 1128px;
-            margin-bottom: 40px;
+            max-width: 1800px;
+            padding: 26px 26px 26px 26px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-top: 0; /* Убираем верхний отступ у hero секции, т.к. отступ есть у меню */
+            position: relative;
         }
         
         .hero-frame {
-            width: 100%;
+            max-width: 100%;
+            width: 100%; /* Занимает всю ширину родителя */
+            height: auto;
             background-color: white;
             border-radius: 20px;
             overflow: hidden;
             border: 3px solid #000;
             position: relative;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-image-container {
-            width: 100%;
-            padding: 26px 26px 26px 26px;
+            padding: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-image {
-            width: 100%;
+            max-width: 100%;
+            /* max-height: calc(100vh - 112px - 74px); */ /* Удалено для автоматической высоты */
             height: auto;
-            display: block;
+            width: 100%; /* Растягивается по ширине контейнера */
+            object-fit: contain;
             border-radius: 15px;
             border: 1px solid #000;
+            display: block;
         }
         
         /* Медиа-запрос для мобильных устройств */
         @media (max-width: 768px) {
+            .menu {
+                padding: 10px 15px;
+            }
+            
+            .menu-logo svg {
+                height: 22px;
+            }
+            
+            .menu-items {
+                gap: 15px;
+            }
+            
+            .menu-item {
+                font-size: 14px;
+            }
+            
             .logo {
                 margin-top: 20px;
                 margin-bottom: 20px;
@@ -96,13 +190,63 @@
                 padding: 10px;
             }
             
+            .menu-container {
+                padding: 0 15px;
+                margin-top: 15px;
+            }
+            
             .hero-section {
-                margin-bottom: 20px;
+                padding: 15px 15px 15px 15px;
+                /* height: calc(100vh - 15px - 60px); */ /* Удалено для автоматической высоты */
+                margin-top: 0;
             }
             
             .hero-image-container {
                 padding: 15px;
             }
+            
+            .hero-image {
+                /* max-height: calc(100vh - 60px - 60px); */ /* Удалено для автоматической высоты */
+            }
+        }
+
+        /* Стили для нового текстового раздела */
+        .info-section {
+            width: 100%;
+            max-width: 1600px; /* Соответствует hero-section */
+            padding: 32px 21px; /* Уменьшено на ~20% (было 40px 26px) */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: #E2E2E2; */ /* Убираем, чтобы фон был как у body или родителя */
+        }
+
+        .info-text-container {
+            max-width: 1127.56px; /* Уменьшено на ~20% (было 1409.451px) */
+            text-align: left; /* Текст по левому краю, как на макете */
+        }
+
+        .info-text-container h2 {
+            font-family: 'Inter', sans-serif; /* Шрифт Inter */
+            font-size: 46.30px; /* Уменьшено на ~20% (было 57.882px) */
+            font-weight: 400; /* Regular для Inter, bold для strong */
+            color: #111; /* Цвет текста из Figma */
+            margin-bottom: 16px; /* Уменьшено на ~20% (было 20px) */
+            line-height: 59.26px; /* Уменьшено на ~20% (было 74.076px) */
+            letter-spacing: -1.64px; /* Уменьшено на ~20% (было -2.051px) */
+        }
+
+        .info-text-container h2 strong {
+            font-weight: 700; /* Bold для "UNIXSAW" */
+        }
+
+        .info-text-container p {
+            font-family: 'Inter', sans-serif; /* Шрифт Inter */
+            font-size: 46.30px; /* Уменьшено на ~20% (было 57.882px) */
+            font-weight: 400; /* Regular для Inter */
+            color: #858585; /* Цвет текста из Figma */
+            line-height: 59.26px; /* Уменьшено на ~20% (было 74.076px) */
+            letter-spacing: -1.64px; /* Уменьшено на ~20% (было -2.051px) */
         }
     </style>
 </head>
@@ -113,18 +257,48 @@
         </svg>
     </div>
     
-    <!-- Добавляем Hero Section -->
-    <div class="hero-section">
-        <div class="hero-frame">
-            <div class="hero-image-container">
-                <img src="Isometric unixsaw_V2.webp" alt="UNIXSAW мастерская" class="hero-image">
+    <!-- Меню -->
+    <div class="menu-container">
+        <div class="menu">
+            <a href="#" class="menu-logo">
+                <svg width="225" height="34" viewBox="0 0 225 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M201.746 11.8917L197.921 32.3667H187.976L179.291 0.866699H188.966L192.791 17.7417L193.376 21.3867L194.096 17.4717L197.471 0.866699H205.931L209.576 17.8317L210.116 21.3867L210.701 17.2917L214.526 0.866699H224.156L215.516 32.3667H205.706L201.746 11.8917Z" fill="#111111"/>
+                    <path d="M160.167 27.9117L158.727 32.3667H148.557L160.212 0.866699H169.887L181.542 32.3667H171.372L169.932 27.9117H160.167ZM162.102 21.4317H167.997L165.027 11.9817L162.102 21.4317Z" fill="#111111"/>
+                    <path d="M119.281 21.9716H129.136C129.046 23.3216 129.541 24.6716 130.216 25.3916C131.341 26.6066 133.096 26.6516 134.041 26.6516C134.986 26.6516 135.976 26.5616 136.831 25.9766C137.506 25.5266 138.001 24.8066 138.001 23.7266C138.001 22.7816 137.686 22.0616 136.831 21.4766C135.976 20.8916 134.176 20.4416 133.141 20.2166L129.991 19.5866C125.536 18.6866 123.331 17.2916 122.206 16.2566C120.541 14.7716 119.776 12.8816 119.776 10.3166C119.776 6.22164 121.936 3.92664 123.466 2.71164C126.481 0.37164 130.306 0.0566406 133.141 0.0566406C135.571 0.0566406 140.071 0.281641 142.951 2.75664C144.526 4.10664 146.056 6.62664 146.191 9.86664H136.921C136.921 9.10164 136.696 8.24664 136.201 7.70664C135.751 7.21164 134.851 6.71664 133.141 6.71664C132.331 6.71664 131.116 6.85164 130.441 7.25664C129.856 7.61664 129.361 8.33664 129.361 9.10164C129.361 9.55164 129.451 10.1366 129.991 10.6316C130.756 11.3966 132.196 11.6216 134.536 12.1166L137.596 12.7916C139.711 13.2416 142.816 14.0066 144.931 16.1216C146.011 17.2016 147.361 19.1816 147.361 22.2416C147.361 25.1666 146.056 28.1816 144.391 29.8916C141.241 33.0866 136.156 33.3566 133.276 33.3566C130.171 33.3566 125.356 33.0416 122.251 29.8016C120.631 28.1366 119.326 25.2566 119.281 21.9716Z" fill="#111111"/>
+                    <path d="M102.235 23.1867L96.8805 32.3667H84.7305L96.4305 15.8967L86.3055 0.866699H97.1055L102.235 9.6417L107.455 0.866699H118.525L108.04 15.8967L119.38 32.3667H107.455L102.235 23.1867Z" fill="#111111"/>
+                    <path d="M72.5586 0.866699H82.3686V32.3667H72.5586V0.866699Z" fill="#111111"/>
+                    <path d="M46.4545 14.9067H46.2295L46.4545 17.2917V32.3667H36.6445V0.866699H46.4545L56.0845 18.3267H56.3095L56.0845 15.9417V0.866699H65.8945V32.3667H56.0845L46.4545 14.9067Z" fill="#111111"/>
+                    <path d="M29.9784 0.866699V20.5767C29.9784 23.5917 29.7534 26.6517 26.9184 29.5317C24.0834 32.4117 20.0334 33.2217 15.4434 33.2217C10.8984 33.2217 6.71336 32.4117 3.87836 29.5317C1.17836 26.7867 0.818359 23.7267 0.818359 20.5317V0.866699H10.6734V20.1267C10.6734 21.3867 10.8534 23.0067 11.8884 24.0867C12.9684 25.2117 14.4534 25.3017 15.3984 25.3017C16.3434 25.3017 17.8284 25.2117 18.9084 24.0867C19.9434 23.0067 20.1234 21.3867 20.1234 20.1267V0.866699H29.9784Z" fill="#111111"/>
+                </svg>
+            </a>
+            <div class="menu-items">
+                <a href="#" class="menu-item">О НАС</a>
+                <a href="#" class="menu-item">УСЛУГИ</a>
+                <a href="#" class="menu-item">КОНТАКТЫ</a>
+                <div class="menu-language">
+                    <a href="#">GE</a> | <a href="#">EN</a>
+                </div>
             </div>
         </div>
     </div>
     
-    <div class="main-content">
-        <h1>Добро пожаловать на новую страницу</h1>
-        <p>Содержимое новой страницы будет добавлено здесь.</p>
+    <!-- Hero Section на весь экран -->
+    <div class="hero-section">
+        <div class="hero-frame">
+            <div class="hero-image-container">
+                <img src="Final frame_v2.webp" alt="UNIXSAW мастерская" class="hero-image">
+            </div>
+        </div>
     </div>
+
+    <!-- Новый текстовый раздел -->
+    <div class="info-section">
+        <div class="info-text-container">
+            <h2><strong>UNIXSAW</strong> специализируется на услугах резки, обработки и распила разнообразных материалов.</h2>
+            <p>Используя современное итальянское оборудование BIESSE, мы осуществляем резку материалов с исключительной точностью!</p>
+        </div>
+    </div>
+    
+   
 </body>
 </html> 
