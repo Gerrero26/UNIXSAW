@@ -270,6 +270,22 @@
             margin: 0 auto; /* Дополнительное центрирование */
         }
 
+        .services-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .services-slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .services-slide.active {
+            display: block;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -489,6 +505,71 @@
                 font-size: 32px;
             }
         }
+
+        .slider-navigation {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 75px;
+        }
+
+        .slider-nav-btn {
+            background: none;
+            border: 2px solid #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .slider-nav-btn:hover:not([disabled]) {
+            background-color: #000;
+            color: white;
+        }
+
+        .slider-nav-btn[disabled] {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slider-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: #000;
+            transform: scale(1.2);
+        }
+
+        /* Дополнительные стили для отдельных карточек */
+        .extra-note {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-top: 30px;
+            font-family: 'Inter', sans-serif;
+            padding: 15px 0;
+            color: #333;
+        }
+
+        strong {
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
@@ -543,102 +624,442 @@
     <!-- Раздел карточки услуг -->
     <div class="services-section">
         <div class="services-card">
-            <div class="services-grid">
-                <!-- Левая панель -->
-                <div class="services-panel left-panel">
-                    <!-- Верхний заголовок с иконками "плюс" и названием -->
-                    <div class="panel-header">
-                        <span class="plus-icon">+</span>
-                        <p class="panel-title">услуги</p>
-                        <span class="plus-icon">+</span>
-                    </div>
-
-                    <!-- Главное изображение -->
-                    <div class="panel-image-container">
-                        <img src="img/razdel/Основные улуги.png" alt="Производственное оборудование" class="panel-image">
-                    </div>
-
-                    <!-- Нижние кодовые ссылки -->
-                    <div class="reference-codes">
-                        <span>A-1</span>
-                        <span>F-2</span>
-                        <span>G-4</span>
-                        <span>F-5</span>
-                        <span>A-6</span>
-                    </div>
-
-                    <!-- Иконки "плюс" в углах -->
-                    <span class="plus-icon bottom-left">+</span>
-                    <span class="plus-icon bottom-right">+</span>
-                </div>
-
-                <!-- Правая панель -->
-                <div class="services-panel right-panel">
-                    <div class="panel-content">
-                        <!-- Основное содержание услуг -->
-                        <div class="services-content">
-                            <h1 class="services-title">ОСНОВНЫЕ УСЛУГИ</h1>
-                            <p class="services-subtitle">Услуги резки, обработки и распила матералов</p>
-
-                            <div class="divider"></div>
-
-                            <div class="services-list">
-                                <div class="service-item">
-                                    <h2 class="service-header">
-                                        <span class="service-number">[1]</span>
-                                        <span class="service-name">Кромка</span>
-                                    </h2>
-                                    <p class="service-description">
-                                        Создадим идеальные кромки для безупречного интерьера, используя современное итальянское
-                                        оборудование BIESSE
-                                    </p>
-                                </div>
-
-                                <div class="divider small"></div>
-
-                                <div class="service-item">
-                                    <h2 class="service-header">
-                                        <span class="service-number">[2]</span>
-                                        <span class="service-name">Плитка</span>
-                                    </h2>
-                                    <p class="service-description">
-                                        Высокоточная резка плитки с использованием детально проработанных чертежей.
-                                    </p>
-                                </div>
-
-                                <div class="divider small"></div>
-
-                                <div class="service-item">
-                                    <h2 class="service-header">
-                                        <span class="service-number">[3]</span>
-                                        <span class="service-name">ДСП и МДФ</span>
-                                    </h2>
-                                    <p class="service-description">Фанера, ламинированная фанера и древесно-пенная плитка</p>
-                                </div>
-
-                                <div class="divider small"></div>
-
-                                <div class="service-item">
-                                    <h2 class="service-header">
-                                        <span class="service-number">[4]</span>
-                                        <span class="service-name">Сварка</span>
-                                    </h2>
-                                    <p class="service-description">
-                                        Профессиональная сварка деталей различной толщины с применением современных технологий.
-                                    </p>
-                                </div>
+            <div class="services-slider">
+                <!-- Слайд 1: Основные услуги -->
+                <div class="services-slide active" data-slide="1">
+                    <div class="services-grid">
+                        <!-- Левая панель -->
+                        <div class="services-panel left-panel">
+                            <!-- Верхний заголовок с иконками "плюс" и названием -->
+                            <div class="panel-header">
+                                <span class="plus-icon">+</span>
+                                <p class="panel-title">услуги</p>
+                                <span class="plus-icon">+</span>
                             </div>
+
+                            <!-- Главное изображение -->
+                            <div class="panel-image-container">
+                                <img src="img/razdel/Основные улуги.png" alt="Основные услуги" class="panel-image">
+                            </div>
+
+                            <!-- Нижние кодовые ссылки -->
+                            <div class="reference-codes">
+                                <span>A-1</span>
+                                <span>F-2</span>
+                                <span>G-4</span>
+                                <span>F-5</span>
+                                <span>A-6</span>
+                            </div>
+
+                            <!-- Иконки "плюс" в углах -->
+                            <span class="plus-icon bottom-left">+</span>
+                            <span class="plus-icon bottom-right">+</span>
                         </div>
 
-                        <!-- Номера страниц -->
-                        <div class="page-number left">1</div>
-                        <div class="page-number right">/4</div>
+                        <!-- Правая панель -->
+                        <div class="services-panel right-panel">
+                            <div class="panel-content">
+                                <!-- Основное содержание услуг -->
+                                <div class="services-content">
+                                    <h1 class="services-title">ОСНОВНЫЕ УСЛУГИ</h1>
+                                    <p class="services-subtitle">Услуги резки, обработки и распила матералов</p>
+
+                                    <div class="divider"></div>
+
+                                    <div class="services-list">
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[1]</span>
+                                                <span class="service-name">Кромка</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Создадим идеальные кромки для безупречного интерьера, используя современное итальянское
+                                                оборудование BIESSE
+                                            </p>
+                                        </div>
+
+                                        <div class="divider small"></div>
+
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[2]</span>
+                                                <span class="service-name">Плитка</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Высокоточная резка плитки с использованием детально проработанных чертежей.
+                                            </p>
+                                        </div>
+
+                                        <div class="divider small"></div>
+
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[3]</span>
+                                                <span class="service-name">ДСП и МДФ</span>
+                                            </h2>
+                                            <p class="service-description">Фанера, ламинированная фанера и древесно-пенная плитка</p>
+                                        </div>
+
+                                        <div class="divider small"></div>
+
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[4]</span>
+                                                <span class="service-name">Сварка</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Профессиональная сварка деталей различной толщины с применением современных технологий.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Номера страниц -->
+                                <div class="page-number left">1</div>
+                                <div class="page-number right">/4</div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Слайд 2: Дополнительные услуги -->
+                <div class="services-slide" data-slide="2">
+                    <div class="services-grid">
+                        <!-- Левая панель -->
+                        <div class="services-panel left-panel">
+                            <!-- Верхний заголовок с иконками "плюс" и названием -->
+                            <div class="panel-header">
+                                <span class="plus-icon">+</span>
+                                <p class="panel-title">услуги</p>
+                                <span class="plus-icon">+</span>
+                            </div>
+
+                            <!-- Главное изображение -->
+                            <div class="panel-image-container">
+                                <img src="img/razdel/Доп. улуги.png" alt="Дополнительные услуги" class="panel-image">
+                            </div>
+
+                            <!-- Нижние кодовые ссылки -->
+                            <div class="reference-codes">
+                                <span>A-1</span>
+                                <span>F-2</span>
+                                <span>G-4</span>
+                                <span>F-5</span>
+                                <span>A-6</span>
+                            </div>
+
+                            <!-- Иконки "плюс" в углах -->
+                            <span class="plus-icon bottom-left">+</span>
+                            <span class="plus-icon bottom-right">+</span>
+                        </div>
+
+                        <!-- Правая панель -->
+                        <div class="services-panel right-panel">
+                            <div class="panel-content">
+                                <!-- Содержание дополнительных услуг -->
+                                <div class="services-content">
+                                    <h1 class="services-title">ДОП. УСЛУГИ</h1>
+                                    <p class="services-subtitle">Индивидуальные решения под нестандартные задачи!</p>
+
+                                    <div class="divider"></div>
+
+                                    <div class="services-list">
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[1]</span>
+                                                <span class="service-name">Кухонные столешницы</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Изготовление столешниц для вашей кухни по индивидуальным размерам и материалам.
+                                            </p>
+                                        </div>
+
+                                        <div class="divider small"></div>
+
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[2]</span>
+                                                <span class="service-name">Мебель по эскизам</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Создание мебели по вашим эскизам и пожеланиям с соблюдением высоких стандартов качества. Шкафы, столы, стулья и многое другое.
+                                            </p>
+                                        </div>
+
+                                        <div class="divider small"></div>
+
+                                        <p class="extra-note">
+                                            Если у вас есть нетипичный заказ или специфическое пожелание просто напишите нам на Email или в WhatsApp.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Номера страниц -->
+                                <div class="page-number left">2</div>
+                                <div class="page-number right">/4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Слайд 3: Процесс работы -->
+                <div class="services-slide" data-slide="3">
+                    <div class="services-grid">
+                        <!-- Левая панель -->
+                        <div class="services-panel left-panel">
+                            <!-- Верхний заголовок с иконками "плюс" и названием -->
+                            <div class="panel-header">
+                                <span class="plus-icon">+</span>
+                                <p class="panel-title">услуги</p>
+                                <span class="plus-icon">+</span>
+                            </div>
+
+                            <!-- Главное изображение -->
+                            <div class="panel-image-container">
+                                <img src="img/razdel/Процесс.png" alt="Процесс работы" class="panel-image">
+                            </div>
+
+                            <!-- Нижние кодовые ссылки -->
+                            <div class="reference-codes">
+                                <span>A-1</span>
+                                <span>F-2</span>
+                                <span>G-4</span>
+                                <span>F-5</span>
+                                <span>A-6</span>
+                            </div>
+
+                            <!-- Иконки "плюс" в углах -->
+                            <span class="plus-icon bottom-left">+</span>
+                            <span class="plus-icon bottom-right">+</span>
+                        </div>
+
+                        <!-- Правая панель -->
+                        <div class="services-panel right-panel">
+                            <div class="panel-content">
+                                <!-- Содержание процесса работы -->
+                                <div class="services-content">
+                                    <h1 class="services-title">ПРОЦЕСС РАБОТЫ</h1>
+                                    <p class="services-subtitle">Контроль на каждом этапе — гарантия идеального результата</p>
+
+                                    <div class="divider"></div>
+
+                                    <div class="services-list">
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[1]</span>
+                                                <span class="service-name">Проектирование</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Каждый заказ начинается с разработки детального чертежа, где все параметры просчитываются до миллиметра.
+                                            </p>
+                                        </div>
+
+                                        <div class="divider small"></div>
+
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[2]</span>
+                                                <span class="service-name">Резка</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Используя современное итальянское оборудование BIESSE, мы осуществляем резку различных материалов с исключительной точностью.
+                                            </p>
+                                        </div>
+
+                                        <div class="divider small"></div>
+
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[3]</span>
+                                                <span class="service-name">Контроль качества</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Строгий контроль качества на всех этапах гарантирует, что готовый продукт соответствует самым высоким стандартам.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Номера страниц -->
+                                <div class="page-number left">3</div>
+                                <div class="page-number right">/4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Слайд 4: Сроки и доставка -->
+                <div class="services-slide" data-slide="4">
+                    <div class="services-grid">
+                        <!-- Левая панель -->
+                        <div class="services-panel left-panel">
+                            <!-- Верхний заголовок с иконками "плюс" и названием -->
+                            <div class="panel-header">
+                                <span class="plus-icon">+</span>
+                                <p class="panel-title">услуги</p>
+                                <span class="plus-icon">+</span>
+                            </div>
+
+                            <!-- Главное изображение -->
+                            <div class="panel-image-container">
+                                <img src="img/razdel/Доставка.png" alt="Сроки и доставка" class="panel-image">
+                            </div>
+
+                            <!-- Нижние кодовые ссылки -->
+                            <div class="reference-codes">
+                                <span>A-1</span>
+                                <span>F-2</span>
+                                <span>G-4</span>
+                                <span>F-5</span>
+                                <span>A-6</span>
+                            </div>
+
+                            <!-- Иконки "плюс" в углах -->
+                            <span class="plus-icon bottom-left">+</span>
+                            <span class="plus-icon bottom-right">+</span>
+                        </div>
+
+                        <!-- Правая панель -->
+                        <div class="services-panel right-panel">
+                            <div class="panel-content">
+                                <!-- Содержание сроков и доставки -->
+                                <div class="services-content">
+                                    <h1 class="services-title">СРОКИ И ДОСТАВКА</h1>
+                                    <p class="services-subtitle">Оперативное производство и логистика под ключ</p>
+
+                                    <div class="divider"></div>
+
+                                    <div class="services-list">
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[1]</span>
+                                                <span class="service-name">Производство</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Большинство заказов мы выполняем в течение 1 рабочего дня — благодаря оптимизированному процессу и современной технике.
+                                            </p>
+                                        </div>
+
+                                        <div class="divider small"></div>
+
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[2]</span>
+                                                <span class="service-name">Доставка</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Можем самостоятельно забрать материалы у заказчика и доставить готовые изделия по завершении работ.
+                                            </p>
+                                        </div>
+
+                                        <div class="divider small"></div>
+
+                                        <div class="service-item">
+                                            <h2 class="service-header">
+                                                <span class="service-number">[3]</span>
+                                                <span class="service-name">Поддержка партнёров</span>
+                                            </h2>
+                                            <p class="service-description">
+                                                Для постоянных клиентов и партнёров мы выделяем персонального менеджера, приоритетное производство и оперативную поддержку.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Номера страниц -->
+                                <div class="page-number left">4</div>
+                                <div class="page-number right">/4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Навигация слайдера -->
+                <div class="slider-navigation">
+                    <button class="slider-nav-btn prev" disabled>&lt;</button>
+                    <div class="slider-dots">
+                        <span class="slider-dot active" data-slide="1"></span>
+                        <span class="slider-dot" data-slide="2"></span>
+                        <span class="slider-dot" data-slide="3"></span>
+                        <span class="slider-dot" data-slide="4"></span>
+                    </div>
+                    <button class="slider-nav-btn next">&gt;</button>
                 </div>
             </div>
         </div>
     </div>
     
-   
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Находим элементы слайдера
+            const slides = document.querySelectorAll('.services-slide');
+            const prevBtn = document.querySelector('.slider-nav-btn.prev');
+            const nextBtn = document.querySelector('.slider-nav-btn.next');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            let currentSlide = 1;
+            const totalSlides = slides.length;
+            
+            // Инициализируем слайдер
+            function initSlider() {
+                slides.forEach((slide, index) => {
+                    slide.style.display = 'none';
+                    if (index === 0) {
+                        slide.style.display = 'block';
+                        slide.classList.add('active');
+                    }
+                });
+                
+                updateNavButtons();
+            }
+            
+            // Обновляем состояние кнопок навигации
+            function updateNavButtons() {
+                prevBtn.disabled = currentSlide === 1;
+                nextBtn.disabled = currentSlide === totalSlides;
+            }
+            
+            // Переключение к определенному слайду
+            function goToSlide(slideNumber) {
+                slides.forEach((slide, index) => {
+                    slide.style.display = 'none';
+                    slide.classList.remove('active');
+                    
+                    dots[index].classList.remove('active');
+                });
+                
+                const slideIndex = slideNumber - 1;
+                slides[slideIndex].style.display = 'block';
+                slides[slideIndex].classList.add('active');
+                dots[slideIndex].classList.add('active');
+                
+                currentSlide = slideNumber;
+                updateNavButtons();
+            }
+            
+            // Обработчики кнопок
+            prevBtn.addEventListener('click', function() {
+                if (currentSlide > 1) {
+                    goToSlide(currentSlide - 1);
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentSlide < totalSlides) {
+                    goToSlide(currentSlide + 1);
+                }
+            });
+            
+            // Добавляем обработчики клика для точек
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    goToSlide(index + 1);
+                });
+            });
+            
+            // Инициализация слайдера
+            initSlider();
+        });
+    </script>
 </body>
 </html> 
