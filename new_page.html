@@ -570,6 +570,322 @@
         strong {
             font-weight: 700;
         }
+
+        /* Стили для раздела контактов */
+        .contacts-section {
+            width: 100%;
+            max-width: 1800px;
+            padding: 60px 26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .contacts-card {
+            width: 1300px;
+            height: 737px;
+            padding: 39px;
+            border: 4px solid #000;
+            border-radius: 24px;
+            background-color: white;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contacts-inner {
+            border: 1px solid #000;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+        }
+
+        .map-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .map-marker {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            border-radius: 8px;
+        }
+
+        .map-marker-icon {
+            width: 60%;
+            height: 60%;
+            filter: invert(1);
+        }
+
+        .map-divider {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+        }
+
+        .map-corners {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Игнорирует события мыши */
+        }
+
+        .contacts-content {
+            position: relative;
+            height: 50%;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .contacts-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contacts-title {
+            font-size: 46px;
+            font-weight: bold;
+            margin-bottom: 28px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .contacts-divider {
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+            margin: 15px 0 30px 0;
+        }
+
+        .address-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .address-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            position: relative;
+            z-index: 1; /* Поднимаем над contacts-corners */
+        }
+
+        .location-icon {
+            width: 60%;
+            height: 60%;
+            filter: invert(1);
+        }
+
+        .address-text {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .address-city {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .address-street {
+            font-size: 24px;
+        }
+
+        .contacts-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 75px;
+            margin-top: 5px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1; /* Поднимаем над contacts-corners */
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon {
+            width: 60%;
+            height: 60%;
+            filter: invert(1);
+        }
+
+        .contact-info {
+            text-align: right;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-phone {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .contact-email {
+            font-size: 28px;
+        }
+
+        .contacts-corners {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0; /* Меняем с -1 на 0 */
+            pointer-events: none; /* Игнорирует события мыши */
+        }
+
+        .corner-plus {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            pointer-events: none; /* Игнорирует события мыши */
+        }
+
+        .top-left {
+            top: 20px;
+            left: 20px;
+        }
+
+        .top-right {
+            top: 20px;
+            right: 20px;
+        }
+
+        .bottom-left {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        /* Адаптация для мобильных устройств */
+        @media (max-width: 1240px) {
+            .contacts-card {
+                padding: 32px;
+                width: 90%;
+                height: auto;
+            }
+            
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .contacts-content {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+            
+            .contacts-right {
+                margin-top: 30px;
+                align-items: center;
+            }
+            
+            .social-links {
+                margin-bottom: 20px;
+            }
+            
+            .contacts-title {
+                font-size: 36px;
+            }
+            
+            .address-city, .address-street, .contact-phone, .contact-email {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contacts-section {
+                padding: 15px;
+            }
+            
+            
+            .map-container {
+                height: 200px;
+            }
+            
+            .contacts-content {
+                padding: 15px;
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .address-icon {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .contacts-title {
+                font-size: 30px;
+            }
+            
+            .address-city, .address-street, .contact-phone, .contact-email {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -984,6 +1300,73 @@
                         <span class="slider-dot" data-slide="4"></span>
                     </div>
                     <button class="slider-nav-btn next">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Раздел Контакты -->
+    <div class="contacts-section">
+        <div class="contacts-card">
+            <div class="contacts-inner">
+                <div class="map-container">
+                    <img src="img/Icon/map.png" alt="Карта местоположения" class="map-image">
+                    <div class="map-marker">
+                        <img src="img/Icon/point.svg" alt="Маркер на карте" class="map-marker-icon">
+                    </div>
+                    <div class="map-divider"></div>
+                    <div class="map-corners">
+                        <span class="corner-plus top-left">+</span>
+                        <span class="corner-plus top-right">+</span>
+                        <span class="corner-plus bottom-left">+</span>
+                        <span class="corner-plus bottom-right">+</span>
+                    </div>
+                </div>
+                
+                <div class="contacts-content">
+                    <div class="contacts-left">
+                        <h1 class="contacts-title">КОНТАКТЫ</h1>
+                        <div class="contacts-divider"></div>
+                        <div class="address-container">
+                            <div class="address-icon">
+                                <img src="img/Icon/point.svg" alt="Адрес" class="location-icon">
+                            </div>
+                            <div class="address-text">
+                                <p class="address-city">Тбилиси,</p>
+                                <p class="address-street">Улица Гелы Чедия 1</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contacts-right">
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <img src="img/Icon/socials telegram.svg" alt="Telegram" class="social-icon">
+                            </a>
+                            <a href="#" class="social-link">
+                                <img src="img/Icon/socials Whatsapp.svg" alt="WhatsApp" class="social-icon">
+                            </a>
+                            <a href="#" class="social-link">
+                                <img src="img/Icon/socials facebook.svg" alt="Facebook" class="social-icon">
+                            </a>
+                            <a href="#" class="social-link">
+                                <img src="img/Icon/socials instagram.svg" alt="Instagram" class="social-icon">
+                            </a>
+                            <a href="#" class="social-link">
+                                <img src="img/Icon/socials tik-tok.svg" alt="TikTok" class="social-icon">
+                            </a>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <p class="contact-phone">+995 558 93 28 38</p>
+                            <p class="contact-email">Unixsaw@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contacts-corners">
+                        <span class="corner-plus bottom-left">+</span>
+                        <span class="corner-plus bottom-right">+</span>
+                    </div>
                 </div>
             </div>
         </div>
